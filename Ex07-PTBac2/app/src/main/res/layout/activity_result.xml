@@ -5,42 +5,32 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ResultActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Giải phương trình bậc 1"
+        android:text="Kết quả giải phương trình bậc 1"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
-    <EditText
-        android:id="@+id/txta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập a"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="20dp"
-        android:inputType="number"
-        tools:ignore="UnknownId,UnknownIdInLayout" />
-
-    <EditText
-        android:id="@+id/txtb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập b"
-        android:layout_below="@+id/txta"
-        android:layout_marginTop="20dp"
-        android:inputType="number" />
-
-    <Button
-        android:id="@+id/btnketqua"
+    <TextView
+        android:id="@+id/txtketqua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kết quả"
-        android:layout_below="@+id/txtb"
+        android:hint="Kết quả"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        tools:ignore="UnknownIdInLayout" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_below="@+id/txtketqua"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
-
 </RelativeLayout>
