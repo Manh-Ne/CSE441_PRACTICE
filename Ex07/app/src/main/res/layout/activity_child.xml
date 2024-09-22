@@ -6,25 +6,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".child_activity">
 
     <TextView
-        android:id="@+id/txtMain"
+        android:id="@+id/txtChild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is main Activity"
+        android:text="This is Child Activity"
         android:textSize="20sp"
-        android:textColor="#ffffff"
-        android:background="#00FF00"
+        android:textColor="#000000"
+        android:background="#FFFF00"
         android:layout_centerInParent="true" />
 
     <Button
-        android:id="@+id/btnOpenChild"
+        android:id="@+id/btnBackToMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Open Child Activity"
-        android:layout_below="@id/txtMain"
+        android:text="Back to Main Activity"
+        android:layout_below="@id/txtChild"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
-
 </RelativeLayout>
