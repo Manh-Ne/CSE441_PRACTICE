@@ -1,0 +1,71 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_span="2"
+        android:layout_gravity="center_horizontal"
+        android:text="Chương trình tính chỉ số BMI"
+        android:textSize="20sp" />
+    <TableRow>
+        <TextView
+            android:text="Nhập Tên:" />
+        <EditText
+            android:id="@+id/edtTen"
+            android:layout_width="match_parent"
+            android:inputType="textPersonName" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Chiều Cao (m):" />
+        <EditText
+            android:id="@+id/edtChieuCao"
+            android:layout_width="match_parent"
+            android:inputType="numberDecimal" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Cân Nặng (kg):" />
+        <EditText
+            android:id="@+id/edtCanNang"
+            android:layout_width="match_parent"
+            android:inputType="numberDecimal" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/btnTinhBMI"
+            android:layout_width="match_parent"
+            android:layout_span="2"
+            android:text="Tính BMI"
+            android:padding="16dp" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="BMI =" />
+        <EditText
+            android:id="@+id/edtBMI"
+            android:layout_width="match_parent"
+            android:enabled="false" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Chuẩn đoán:" />
+        <EditText
+            android:id="@+id/edtChuanDoan"
+            android:layout_width="match_parent"
+            android:enabled="false" />
+    </TableRow>
+
+</TableLayout>
