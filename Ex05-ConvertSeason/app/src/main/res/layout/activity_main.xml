@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TableRow>
+        <TextView
+            android:layout_span="2"
+            android:gravity="center"
+            android:text="Chương trình chuyển đổi năm"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp" />
+    </TableRow>
+
+    <!-- Nhập năm dương lịch -->
+    <TableRow>
+        <TextView
+            android:text="Năm dương lịch:"
+            android:paddingEnd="10dp" />
+        <EditText
+            android:id="@+id/edtNamDuongLich"
+            android:inputType="number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Nhập năm"
+            android:maxLength="4"
+            android:padding="5dp" />
+    </TableRow>
+
+    <!-- Nút chuyển đổi -->
+    <TableRow>
+        <Button
+            android:id="@+id/btnChuyenDoi"
+            android:layout_span="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chuyển đổi"
+            android:textSize="16sp"
+            android:padding="10dp" />
+    </TableRow>
+
+    <!-- Hiển thị năm âm lịch -->
+    <TableRow>
+        <TextView
+            android:text="Năm âm lịch:"
+            android:paddingEnd="10dp" />
+        <TextView
+            android:id="@+id/txtNamAmLich"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chưa có"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            android:padding="5dp" />
+    </TableRow>
+
+</TableLayout>
