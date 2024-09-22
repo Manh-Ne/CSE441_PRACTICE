@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 int a = Integer.parseInt("0"+edt1.getText());
                 int b = Integer.parseInt("0"+edt2.getText());
                 if (b == 0) {
-                    edt3.setText("b phai khac 0");
+                    edt3.setText("b phải khác 0");
                 } else {
                     edt3.setText("a / b =" +(a/b));
                 }
