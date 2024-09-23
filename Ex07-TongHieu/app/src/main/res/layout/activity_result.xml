@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#E6E6FA">
+
+    <TextView
+        android:id="@+id/tvTitleResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xử lý Kết quả"
+        android:textColor="#800080"
+        android:textSize="20sp"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhận A:"
+        android:textColor="#FF0000" />
+
+    <EditText
+        android:id="@+id/edtAA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhận B:"
+        android:textColor="#FF0000" />
+
+    <EditText
+        android:id="@+id/edtBB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnTong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trả về Tổng"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#0000FF"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btnHieu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trả về Hiệu"
+            android:backgroundTint="#0000FF"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+</LinearLayout>
