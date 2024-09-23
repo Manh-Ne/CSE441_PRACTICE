@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:src="@drawable/mygirl"/>
+        />
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btncapture"
         android:background="#00000000"
-        app:srcCompat="@drawable/icon"/>
+        android:src="@drawable/icon_camera"/>
 
 </LinearLayout>
