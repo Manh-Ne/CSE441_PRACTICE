@@ -23,7 +23,24 @@ public class MainActivity extends AppCompatActivity {
         btnplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inten1 = new Intent(MainActivity.this, );
+                Intent inten1 = new Intent(MainActivity.this, Myservice.class);
+                startActivity(inten1);
+                if (flag == true){
+                    btnplay.setImageResource(R.drawable.pause);
+                    flag = false;
+                } else {
+                    btnplay.setImageResource(R.drawable.play);
+                    flag = true;
+                }
+            }
+        });
+        btnstop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(MainActivity.this, Myservice.class);
+                stopService(intent2);
+                btnplay.setImageResource(R.drawable.play);
+                flag = true;
             }
         });
     }
