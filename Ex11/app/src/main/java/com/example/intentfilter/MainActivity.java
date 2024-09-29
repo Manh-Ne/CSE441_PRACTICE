@@ -14,18 +14,18 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnOpen;
-    EditText edtLink;
+    Button btnopen;
+    EditText edtlink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edtLink.findViewById(R.id.edtLink);
-        btnOpen.findViewById(R.id.btnOpen);
-        btnOpen.setOnClickListener(new View.OnClickListener() {
+        edtlink=findViewById(R.id.edtLink);
+        btnopen=findViewById(R.id.btnOpen);
+        btnopen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://"+edtLink.getText().toString()));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://"+edtlink.getText().toString()));
                 startActivity(intent);
             }
         });
