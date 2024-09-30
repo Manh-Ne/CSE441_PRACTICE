@@ -1,6 +1,7 @@
 package com.example.ghichu;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -17,9 +18,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     ListView lv;
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtwork, edth, edtm;
     TextView txtdate;
     Button btnwork;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
         arraywork = new ArrayList<>();
         arrAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arraywork);
         lv.setAdapter(arrAdapter);
+        sharedPreferences = getSharedPreferences("workData", MODE_PRIVATE);
         Date currentDate = Calendar.getInstance().getTime();
-        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         txtdate.setText("Hôm nay: "+simpleDateFormat.format(currentDate));
+        loadSavedWork();
         btnwork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,11 +70,42 @@ public class MainActivity extends AppCompatActivity {
                     String str = edtwork.getText().toString() + " - "+edth.getText().toString() + ":"+edtm.getText().toString();
                     arraywork.add(str);
                     arrAdapter.notifyDataSetChanged();
+                    saveWorkList();
                     edtm.setText("");
                     edth.setText("");
                     edtwork.setText("");
                 }
             }
         });
+        lv.setOnItemClickListener((parent, view, position, id) -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Delete Work");
+            builder.setMessage("Are you sure you want to delete this work?");
+            builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                arraywork.remove(position);
+                arrAdapter.notifyDataSetChanged();
+                saveWorkList();
+            });
+            builder.setNegativeButton("No", null);
+            builder.show();
+        });
+    }
+
+
+    private void saveWorkList() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Set<String> set = new HashSet<>(arraywork);
+        editor.putStringSet("workList", set);
+        editor.apply();
+    }
+
+
+    private void loadSavedWork() {
+        Set<String> set = sharedPreferences.getStringSet("workList", null);
+        if (set != null) {
+            arraywork.clear();
+            arraywork.addAll(set);
+            arrAdapter.notifyDataSetChanged();
+        }
     }
 }
