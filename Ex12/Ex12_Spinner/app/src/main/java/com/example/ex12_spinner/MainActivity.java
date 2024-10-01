@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        txt1 = (TextView) findViewById(R.id.txt1);
         Spinner spin1 = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(
                 MainActivity.this, android.R.layout.simple_spinner_item, arr1
