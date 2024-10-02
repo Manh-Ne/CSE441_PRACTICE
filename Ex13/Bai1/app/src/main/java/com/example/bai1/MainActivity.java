@@ -1,6 +1,8 @@
 package com.example.bai1;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.MultiAutoCompleteTextView;
@@ -32,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
                 this, android.R.layout.simple_list_item_1,arr
         ));
         multiComplete.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-        singleComplete.addTextChangedListener();
+        singleComplete.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 }
