@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvStaffResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Result!"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/black"
+        android:paddingTop="30dp"
+         />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chưa nhập đủ dữ liệu"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:paddingTop="30dp" />
+
+    <EditText
+        android:id="@+id/edtStaffId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1in"
+        android:hint="Staff id" />
+
+    <EditText
+        android:id="@+id/edtStaffName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Staff full name" />
+
+    <EditText
+        android:id="@+id/edtBirthDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Birth date" />
+
+    <EditText
+        android:id="@+id/edtSalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Salary" />
+
+    <Button
+        android:id="@+id/btnAddStaff"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#673AB7"
+        android:layout_marginTop="30dp"
+        android:text="Add New Staff"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
