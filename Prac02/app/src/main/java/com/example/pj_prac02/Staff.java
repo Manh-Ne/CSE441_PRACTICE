@@ -1,23 +1,23 @@
 package com.example.pj_prac02;
 
 public class Staff {
-    private int id;
+    private String id;
     private String name;
     private String birthDay;
     private String salary;
 
-    public Staff(int id, String name, String birthDay, String salary){
+    public Staff(String id, String name, String birthDay, String salary){
         this.id = id;
         this.name = name;
         this.birthDay = birthDay;
         this.salary = salary;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
