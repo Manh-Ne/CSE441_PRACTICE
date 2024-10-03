@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PJ_Prac03"
         tools:targetApi="31">
         <activity
+            android:name=".CountryDetail"
+            android:exported="false" />
+        <activity
             android:name=".CountryAdapter"
             android:exported="false" />
         <activity
