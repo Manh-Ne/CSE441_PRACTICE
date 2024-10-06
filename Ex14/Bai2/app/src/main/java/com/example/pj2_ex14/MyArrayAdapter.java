@@ -1,7 +1,6 @@
 package com.example.pj2_ex14;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,23 +25,31 @@ public class MyArrayAdapter extends ArrayAdapter<Item> {
         this.LayoutId = LayoutId;
     }
 
-    @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater = context.getLayoutInflater();
-        convertView = inflater.inflate(LayoutId, null);
+        if (convertView == null) {
+            LayoutInflater inflater = context.getLayoutInflater();
+            convertView = inflater.inflate(LayoutId, parent, false);
+        }
+
         Item myItem = myArray.get(position);
-        ImageView btnLike = convertView.findViewById(R.id.btnLike);
+
+        ImageView btnLike = convertView.findViewById(R.id.imgLike);
         int thich = myItem.getThich();
-        if (thich==1){
+        if (thich == 1) {
             btnLike.setImageResource(R.drawable.like);
         } else {
-            btnLike.setImageResource(R.drawable.unlike);
+            btnLike.setImageResource(R.drawable.favourite);
         }
+
         TextView tieude = convertView.findViewById(R.id.txtTieuDe);
         tieude.setText(myItem.getTieuDe());
+
         TextView maso = convertView.findViewById(R.id.txtMaSo);
         maso.setText(myItem.getMaSo());
+
         return convertView;
     }
+
+
 }
