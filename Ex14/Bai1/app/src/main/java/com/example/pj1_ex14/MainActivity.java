@@ -46,5 +46,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    
+    private void addControl(){
+        TabHost tab = (TabHost) findViewById(R.id.tabHost);
+        tab.setup();
+        TabHost.TabSpec tab1 = tab.newTabSpec("t1");
+        tab1.setContent(R.id.tab1);
+        tab1.setIndicator("",getResources().getDrawable(R.drawable.cong));
+        tab.addTab(tab1);
+        TabHost.TabSpec tab2 = tab.newTabSpec("t2");
+        tab2.setContent(R.id.tab2);
+        tab2.setIndicator("",getResources().getDrawable(R.drawable.lishsu));
+        tab.addTab(tab2);
+        edta = (EditText) findViewById(R.id.edta);
+        edtb = (EditText) findViewById(R.id.edtb);
+        btnCong = (Button) findViewById(R.id.btnCong);
+        lv1 = (ListView) findViewById(R.id.lv1);
+        list = new ArrayList<String>();
+        myarray = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,list);
+        lv1.setAdapter(myarray);
+    }
 }
