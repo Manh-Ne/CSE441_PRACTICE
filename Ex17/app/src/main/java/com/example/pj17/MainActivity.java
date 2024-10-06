@@ -2,7 +2,6 @@ package com.example.pj17;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -48,5 +47,40 @@ public class MainActivity extends AppCompatActivity {
         }
         c.close();
         myadapter.notifyDataSetChanged();
+    }
+    private void processCopy() {
+        File dbFile = getDatabasePath(DATABASE_NAME);
+        if (!dbFile.exists())
+        {
+            try{CopyDataBaseFromAsset();
+                Toast.makeText(this, "Copying sucess from Assets folder", Toast.LENGTH_LONG).show();
+            }
+            catch (Exception e){
+                Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    private String getDatabasePath(){
+        return getApplicationInfo().dataDir + DB_PATH_SUFFIX + DATABASE_NAME;
+    }
+    public void CopyDataBaseFromAsset() {
+        try {
+            InputStream myInput;
+            myInput = getAssets().open(DATABASE_NAME);
+            String outFileName = getDatabasePath();
+            File f = new File(getApplicationInfo().dataDir + DB_PATH_SUFFIX);
+            if (!f.exists())
+                f.mkdir();
+            OutputStream myOutput = new FileOutputStream(outFileName);
+            int size = myInput.available();
+            byte[] buffer = new byte[size];
+            myInput.read(buffer);
+            myOutput.write(buffer);
+            myOutput.flush();
+            myOutput.close();
+            myInput.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
