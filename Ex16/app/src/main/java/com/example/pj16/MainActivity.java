@@ -43,6 +43,21 @@ public class MainActivity extends AppCompatActivity {
                 lichsu += "\n";
             }
         });
-        
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lichsu="";
+                txtLichSu.setText(lichsu);
+            }
+        });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences myprefs = getSharedPreferences("mysave", MODE_PRIVATE);
+        SharedPreferences.Editor myedit = myprefs.edit();
+        myedit.putString("ls", lichsu);
+        myedit.commit();
     }
 }
