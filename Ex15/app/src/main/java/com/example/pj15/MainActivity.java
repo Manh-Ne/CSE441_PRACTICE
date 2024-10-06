@@ -78,6 +78,29 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
         });
 
-        
+        btnUpdate.setOnClickListener(view -> {
+            String malop = edtMaLop.getText().toString();
+            int siso = Integer.parseInt(edtSiSo.getText().toString());
+
+            ContentValues myValue = new ContentValues();
+            myValue.put("siso", siso);
+
+            int n = myDatabase.update("tbllop", myValue, "malop = ?", new String[]{malop});
+            String msg = (n == 0) ? "No record to update" : n + " record is updated";
+            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+        });
+
+        btnQuery.setOnClickListener(view -> {
+            myList.clear();
+            Cursor c = myDatabase.query("tbllop", null, null, null, null, null, null);
+            if (c.moveToFirst()) {
+                do {
+                    String data = c.getString(0) + " - " + c.getString(1) + " - " + c.getString(2);
+                    myList.add(data);
+                } while (c.moveToNext());
+            }
+            c.close();
+            myAdapter.notifyDataSetChanged();
+        });
     }
 }
