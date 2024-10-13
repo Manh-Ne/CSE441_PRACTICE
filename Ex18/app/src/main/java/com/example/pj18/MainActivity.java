@@ -1,5 +1,6 @@
 package com.example.pj18;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,7 +10,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    String DB_PATH_SUFFIX = "/databases/";
+    public static SQLiteDatabase database=null;
+    public static String DATABASE_NAME="arirang.sqlite";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
