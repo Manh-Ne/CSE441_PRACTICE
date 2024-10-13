@@ -1,40 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailStudent">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvStudentId"
-        android:layout_width="match_parent"
+        android:id="@+id/txtId"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mã sinh viên: B27DCCN100" />
+        android:textSize="16sp"/>
 
     <TextView
-        android:id="@+id/tvStudentName"
-        android:layout_width="match_parent"
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Họ và tên: Mai Thị Hoa" />
+        android:textSize="16sp"/>
 
     <TextView
-        android:id="@+id/tvStudentEmail"
-        android:layout_width="match_parent"
+        android:id="@+id/txtBirthDay"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email: hoamai@xmail.com" />
+        android:textSize="16sp"/>
 
     <TextView
-        android:id="@+id/tvStudentGpa"
-        android:layout_width="match_parent"
+        android:id="@+id/txtAddress"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GPA: 3.25" />
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtMajor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtGPA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/txtGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chỉnh sửa" />
+        android:text="Sửa"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xóa"/>
+</LinearLayout>

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "name": "Nguyễn Văn A",
+    "birthDay": "2000-01-01",
+    "address": "Hà Nội",
+    "email": "a@gmail.com",
+    "major": "Công nghệ thông tin",
+    "gpa": 3.5,
+    "year": 2,
+    "gender": "Nam"
+  },
+  {
+    "id": "2",
+    "name": "Trần Thị B",
+    "birthDay": "1999-05-20",
+    "address": "TP. Hồ Chí Minh",
+    "email": "b@gmail.com",
+    "major": "Kinh tế",
+    "gpa": 3.7,
+    "year": 3,
+    "gender": "Nữ"
+  }
+]

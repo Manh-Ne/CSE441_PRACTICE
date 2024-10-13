@@ -10,16 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PJ_BTTH03"
+        android:theme="@style/Theme.PJ18"
         tools:targetApi="31">
         <activity
-            android:name=".EditStudentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DetailStudent"
-            android:exported="false" />
-        <activity
-            android:name=".AddStudent"
+            android:name=".SubActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
