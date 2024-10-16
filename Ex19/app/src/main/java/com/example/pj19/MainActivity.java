@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     XmlPullParserFactory fc = XmlPullParserFactory.newInstance();
                     XmlPullParser parser = fc.newPullParser();
                     parser.setInput(myInput,null);
-                    int eventType = 1;
+                    int eventType = parser.getEventType();
                     String nodeName;
                     String datashow="";
                     while (eventType!=XmlPullParser.END_DOCUMENT)
@@ -58,16 +58,32 @@ public class MainActivity extends AppCompatActivity {
                             case XmlPullParser.START_TAG:
                                 nodeName=parser.getName();
                                 if(nodeName.equals("employee")){
-                                    datashow+=parser.getAttributeName(0)+"-";
-                                    datashow+=parser.getAttributeName(1)+"-";
+                                    datashow += parser.getAttributeValue(null, "id") + "-";
+                                    datashow += parser.getAttributeValue(null, "title") + "-";
                                 } else if (nodeName.equals("name")) {
-                                    parser.next();
-                                    datashow+=parser.getText()+"-";
+                                    datashow += parser.getText()+"-";
                                 } else if (nodeName.equals("phone")) {
-                                    datashow+=parser.nextText();
+                                    datashow += parser.nextText();
                                 }
                                 break;
-                           
+                            case XmlPullParser.END_TAG:
+                                nodeName=parser.getName();
+                                if(nodeName.equals("employee")){
+                                    myList.add(datashow);
+                                    datashow="";
+                                }
+                                break;
+                        }
+                        eventType = parser.next();
+                    }
+                    myAdapter.notifyDataSetChanged();
+                }
+                catch (IOException e1){
+                    e1.printStackTrace();
+                }
+                catch (XmlPullParserException e2){
+                    e2.printStackTrace();
+                }
             }
         });
     }
