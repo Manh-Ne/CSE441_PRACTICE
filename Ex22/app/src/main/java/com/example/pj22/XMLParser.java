@@ -16,7 +16,7 @@ public class XMLParser {
         String xml = null;
         try {
             DefaultHttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost();
+            HttpPost httpPost = new HttpPost(url);
             HttpResponse httpResponse = httpClient.execute(httpPost);
             HttpEntity httpEntity = httpResponse.getEntity();
             xml = EntityUtils.toString(httpEntity);

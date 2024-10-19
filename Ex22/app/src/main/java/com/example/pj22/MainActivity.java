@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LoadExampleTask task = new LoadExampleTask();
-                task.excute();
+                task.execute();
             }
         });
     }
@@ -93,6 +93,25 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             return list;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            myAdapter.clear();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<String> result) {
+            super.onPostExecute(result);
+            myAdapter.clear();
+            myAdapter.addAll(result);
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+
         }
     }
 }
