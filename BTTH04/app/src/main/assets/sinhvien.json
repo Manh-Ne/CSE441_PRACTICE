@@ -1,0 +1,14 @@
+{
+  "sinhvien": {
+    "mssv1": {
+      "hoten": "Nguyễn Văn A",
+      "lop": "K65CA",
+      "diem": 8.5
+    },
+    "mssv2": {
+      "hoten": "Trần Thị B",
+      "lop": "K64CB",
+      "diem": 7.0
+    }
+  }
+}
