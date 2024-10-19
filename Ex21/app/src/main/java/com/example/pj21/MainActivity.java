@@ -12,6 +12,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,8 +37,36 @@ public class MainActivity extends AppCompatActivity {
         btnParse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                parseJson();
+            }
+            private void parseJson() {
+                String json = null;
+                try {
+                    InputStream inputStream = getAssets().open("computer.json");
+                    int size = inputStream.available();
+                    byte[] buffer = new byte[size];
+                    inputStream.read(buffer);
+                    inputStream.close();
+                    json = new String(buffer, "UTF-8");
+                    JSONObject reader = new JSONObject(json);
+                    myList.add(reader.getString("MaDM"));
+                    myList.add(reader.getString("TenDM"));
+                    JSONArray myArray = reader.getJSONArray("Sanphams");
+                    for (int i = 0; i<myArray.length(); i++){
+                        JSONObject myObj = myArray.getJSONObject(i);
+                        myList.add(myObj.getString("MaSP") + " - " + myObj.getString("TenSP"));
+                        myList.add(myObj.getString("SoLuong") + " " + myObj.getString("DonGia") + " = " + myObj.getString("ThanhTien"));
+                        myList.add(myObj.getString("Hinh"));
+                    }
+                    myAdapter.notifyDataSetChanged();
+                }catch (IOException e1){
+                    e1.printStackTrace();
+                }catch (JSONException e2){
+                    e2.printStackTrace();
+                }
             }
         });
     }
+
+
 }

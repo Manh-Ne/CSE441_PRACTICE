@@ -1,5 +1,7 @@
 package com.example.pjbtth04;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -19,11 +21,11 @@ import java.util.ArrayList;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
     private ArrayList<Student> studentList;
-    private Context context;
+
 
     public StudentAdapter(ArrayList<Student> studentList) {
         this.studentList = studentList;
-        this.context = context;
+
     }
 
     @NonNull
@@ -41,21 +43,22 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         holder.txtClass.setText("Lớp: " + student.getClassName());
         holder.txtGPA.setText("Điểm trung bình: " + student.getGpa());
 
-        // Edit Button logic
         holder.btnEdit.setOnClickListener(v -> {
-            Intent intent = new Intent(context, EditStudent.class);
-            intent.putExtra("msv", student.getMsv());  // Pass MSSV to edit activity
-            context.startActivity(intent);
+            Intent intent = new Intent(this, EditStudent.class);
+            intent.putExtra("msv", student.getMsv());
+            startActivity(intent);
         });
 
-        // Delete Button logic
         holder.btnDelete.setOnClickListener(v -> {
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("sinhvien");
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("QLSV");
             databaseReference.child(student.getMsv()).removeValue()
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(context, "Sinh viên đã bị xóa", Toast.LENGTH_SHORT).show();
+                        // Xóa dữ liệu khỏi danh sách
                         studentList.remove(position);
-                        notifyItemRemoved(position);  // Update RecyclerView
+                        // Cập nhật RecyclerView sau khi xóa
+                        notifyItemRemoved(position);
+                        notifyItemRangeChanged(position, studentList.size());
+                        Toast.makeText(context, "Sinh viên đã bị xóa", Toast.LENGTH_SHORT).show();
                     })
                     .addOnFailureListener(e -> Toast.makeText(context, "Lỗi khi xóa sinh viên", Toast.LENGTH_SHORT).show());
         });
@@ -80,4 +83,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             btnDelete = itemView.findViewById(R.id.btnDelete);
         }
     }
+
+
 }

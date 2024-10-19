@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Student> studentList = new ArrayList<>();
     private DatabaseReference databaseReference;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         btnAddStudent = findViewById(R.id.btnAdd);
         recyclerView = findViewById(R.id.recyclerView);
 
+        studentAdapter = new StudentAdapter(this, studentList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(studentAdapter);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("sinhvien");
-        studentList = new ArrayList<>();
-        studentAdapter = new StudentAdapter(studentList);
         loadStudents();
 
         btnAddStudent.setOnClickListener(view -> {

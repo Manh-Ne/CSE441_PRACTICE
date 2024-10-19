@@ -5,11 +5,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +17,7 @@ public class AddStudent extends AppCompatActivity {
     private EditText edtName, edtMSV, edtClass, edtGPA;
     private Button btnCreate;
     private DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +48,10 @@ public class AddStudent extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     Toast.makeText(AddStudent.this, "MSSV đã tồn tại!", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Create a new Student object
                     Student student = new Student(msv, name, studentClass, Double.parseDouble(gpa));
                     databaseReference.child(msv).setValue(student);
                     Toast.makeText(AddStudent.this, "Thêm sinh viên thành công!", Toast.LENGTH_SHORT).show();
-                    finish();  // Go back to the previous screen
+                    finish();
                 }
             }
 
