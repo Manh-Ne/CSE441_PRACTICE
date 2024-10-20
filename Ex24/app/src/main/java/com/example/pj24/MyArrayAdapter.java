@@ -36,6 +36,7 @@ public class MyArrayAdapter extends ArrayAdapter<TyGia> {
         TextView txtBanTM = (TextView) item.findViewById(R.id.txtBanTM);
         TextView txtMuaCK = (TextView) item.findViewById(R.id.txtMuaCK);
         TextView txtBanCK = (TextView) item.findViewById(R.id.txtBanCK);
+
         imgHinh.setImageBitmap(tyGia.getBitmap());
         txtType.setText(tyGia.getMuatienmat());
         txtMuaTM.setText(tyGia.getMuatienmat());

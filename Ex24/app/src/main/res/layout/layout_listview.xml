@@ -19,7 +19,7 @@
             android:id="@+id/txtmua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="MuaTM"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
 
@@ -34,7 +34,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="BanTM"
             android:layout_marginRight="10dp"/>
 
         <TextView
@@ -59,7 +59,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="MuaCK"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
 
@@ -74,7 +74,7 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="BanCK"
             android:layout_marginRight="10dp"/>
 
         <TextView
