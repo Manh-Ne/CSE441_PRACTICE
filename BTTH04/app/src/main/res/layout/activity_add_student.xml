@@ -39,7 +39,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtName"
+                android:id="@+id/editN1"
                 android:layout_width="276dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -61,7 +61,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtMSV"
+                android:id="@+id/editM1"
                 android:layout_width="276dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -83,7 +83,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtClass"
+                android:id="@+id/editL1"
                 android:layout_width="276dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -100,12 +100,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10sp"
-                android:text="GPA"
+                android:text="Gpa"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtGPA"
+                android:id="@+id/editG1"
                 android:layout_width="276dp"
                 android:layout_height="wrap_content"
                 android:ems="10"

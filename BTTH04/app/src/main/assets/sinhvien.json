@@ -1,13 +1,11 @@
 {
   "sinhvien": {
     "mssv1": {
-      "msv": 2051062463,
       "hoten": "Nguyễn Văn A",
       "lop": "K65CA",
       "diem": 8.5
     },
     "mssv2": {
-      "msv": 2051079893,
       "hoten": "Trần Thị B",
       "lop": "K64CB",
       "diem": 7.0

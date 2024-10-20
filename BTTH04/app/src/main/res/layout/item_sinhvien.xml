@@ -13,6 +13,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:background="@drawable/people" />
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -21,14 +26,14 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvMSV"
+                    android:id="@+id/tvmsv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Mã sinh viên" />
 
                 <TextView
-                    android:id="@+id/tvHoTen"
+                    android:id="@+id/tvhoten"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -37,14 +42,14 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tvClass"
+                    android:id="@+id/tvclass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="Lớp" />
 
                 <TextView
-                    android:id="@+id/tvGPA"
+                    android:id="@+id/tvGba"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="GPA" />

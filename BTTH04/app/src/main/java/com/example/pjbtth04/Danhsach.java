@@ -3,7 +3,6 @@ package com.example.pjbtth04;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -23,13 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
+public class Danhsach extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private List<Sinhvien> sinhVienList;
     private RecyclerView recyclerView;
     private SinhvienAdapter adapter;
-    private ImageButton btnA;
+    private ImageButton btnAdd, btnEdit;
     private ActivityResultLauncher<Intent> addSinhvienLauncher;
 
     @SuppressLint("MissingInflatedId")
@@ -39,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.View1);
-        btnA = findViewById(R.id.btnAdd);
+        btnAdd = findViewById(R.id.btnAdd);
+        btnEdit = findViewById(R.id.btnSua);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         sinhVienList = new ArrayList<>();
@@ -62,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        btnA.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AddStudent.class);
+        btnAdd.setOnClickListener(v -> {
+            Intent intent = new Intent(Danhsach.this, AddStudent.class);
             addSinhvienLauncher.launch(intent);
         });
     }
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadDataFromFirebase() {
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 sinhVienList.clear();
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MainActivity.this, "Failed to load data.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Danhsach.this, "Failed to load data.", Toast.LENGTH_SHORT).show();
             }
         });
     }

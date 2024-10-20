@@ -7,28 +7,28 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/edtName"
+        android:id="@+id/editN1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Họ tên" />
 
     <EditText
-        android:id="@+id/edtClass"
+        android:id="@+id/editL1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Lớp" />
 
     <EditText
-        android:id="@+id/edtMSV"
+        android:id="@+id/editM1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="MSSV" />
 
     <EditText
-        android:id="@+id/edtGPA"
+        android:id="@+id/editG1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="GPA" />
+        android:hint="Điểm" />
 
     <Button
         android:id="@+id/btnUpdate"
