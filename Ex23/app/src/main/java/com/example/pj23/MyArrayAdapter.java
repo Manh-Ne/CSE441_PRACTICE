@@ -40,13 +40,7 @@ public class MyArrayAdapter extends ArrayAdapter {
         txtTitle.setText(lst.getTitle().toString());
         TextView txtInfo = convertView.findViewById(R.id.txtInfo);
         txtInfo.setText(lst.getInfo().toString());
-        MainActivity.lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(lst.getLink()));
-                context.startActivity(intent);
-            }
-        });
+
         return convertView;
     }
 }
