@@ -13,7 +13,6 @@ public class Student implements Serializable {
     private int year;
     private String gender;
 
-
     public Student(String id, String name, String birthDay, String address, String email, String major, double gpa, int year, String gender) {
         this.id = id;
         this.name = name;
@@ -25,77 +24,18 @@ public class Student implements Serializable {
         this.year = year;
         this.gender = gender;
     }
-
-    public String getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Name: " + name + ", BirthDay: " + birthDay + ", Address: " + address + ", Email: " + email + ", Major: " + major + ", GPA: " + gpa + ", Year: " + year + ", Gender: " + gender;
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(String birthDay) {
-        this.birthDay = birthDay;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMajor() {
-        return major;
-    }
-
-    public void setMajor(String major) {
-        this.major = major;
-    }
-
-    public double getGpa() {
-        return gpa;
-    }
-
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    // Getter và Setter
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getBirthDay() { return birthDay; }
+    public String getAddress() { return address; }
+    public String getEmail() { return email; }
+    public String getMajor() { return major; }
+    public double getGpa() { return gpa; }
+    public int getYear() { return year; }
+    public String getGender() { return gender; }
 }
-
