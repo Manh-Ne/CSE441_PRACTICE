@@ -50,7 +50,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
                 "\nYear: " + student.getYear() +
                 "\nGender: " + student.getGender();
 
-        holder.txtName.setText(studentInfo);  // Hiển thị thông tin sinh viên
+        holder.txtName.setText(studentInfo);
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {

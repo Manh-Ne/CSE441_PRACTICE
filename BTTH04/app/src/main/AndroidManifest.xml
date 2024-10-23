@@ -18,10 +18,8 @@
         <activity
             android:name=".AddStudent"
             android:exported="false" />
-        <activity
-            android:name=".item_sinhvien"
-            android:exported="false" />
-        <activity android:name=".MainActivity"
+
+        <activity android:name=".Danhsach"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

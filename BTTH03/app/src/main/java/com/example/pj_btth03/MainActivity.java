@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,13 +32,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(studentAdapter);
 
+
         fabAddStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddStudent.class);
+                Intent intent = new Intent(MainActivity.this, AddStudentActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
+
 
         studentAdapter.setOnItemClickListener(new StudentAdapter.OnItemClickListener() {
             @Override
@@ -48,16 +51,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onEditClick(int position) {
 
+                Intent intent = new Intent(MainActivity.this, EditStudentActivity.class);
+                intent.putExtra("editStudent", studentList.get(position));
+                intent.putExtra("position", position);
+                startActivityForResult(intent, 2);
             }
 
             @Override
             public void onDeleteClick(int position) {
-                studentList.remove(position);
-                studentAdapter.notifyItemRemoved(position);
+                // Tạo AlertDialog để xác nhận xóa
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Xác nhận xóa")
+                        .setMessage("Bạn có chắc chắn muốn xóa sinh viên này không?")
+                        .setPositiveButton("Có", (dialog, which) -> {
+                            studentList.remove(position);
+                            studentAdapter.notifyItemRemoved(position);
+                        })
+                        .setNegativeButton("Không", (dialog, which) -> dialog.dismiss())
+                        .show();
             }
+
         });
     }
 
+    // Giả lập dữ liệu sinh viên ban đầu
     private List<Student> loadStudentsFromJson() {
         List<Student> students = new ArrayList<>();
         students.add(new Student("1", "Nguyễn Văn A", "2000-01-01", "Hà Nội", "a@gmail.com", "Công nghệ thông tin", 3.5, 2, "Nam"));
@@ -69,9 +86,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null) {
-            Student newStudent = (Student) data.getSerializableExtra("newStudent");
-            studentList.add(newStudent);
-            studentAdapter.notifyItemInserted(studentList.size() - 1);
+            if (requestCode == 1) {
+                Student newStudent = (Student) data.getSerializableExtra("newStudent");
+                studentList.add(newStudent);
+                studentAdapter.notifyItemInserted(studentList.size() - 1);
+            } else if (requestCode == 2) {
+                Student updatedStudent = (Student) data.getSerializableExtra("updatedStudent");
+                int position = data.getIntExtra("position", -1);
+                if (position != -1 && updatedStudent != null) {
+                    studentList.set(position, updatedStudent);
+                    studentAdapter.notifyItemChanged(position);
+                }
+            }
         }
     }
 }

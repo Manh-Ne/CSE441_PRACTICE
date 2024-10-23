@@ -9,9 +9,10 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AddStudent extends AppCompatActivity {
+public class AddStudentActivity extends AppCompatActivity {
 
     private EditText edtId, edtName, edtBirthDay, edtAddress, edtEmail, edtGPA;
     private Spinner spinnerMajor, spinnerYear;
@@ -34,8 +35,8 @@ public class AddStudent extends AppCompatActivity {
         radioGroupGender = findViewById(R.id.llGender);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-
         setupSpinners();
+
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,56 +49,21 @@ public class AddStudent extends AppCompatActivity {
                 String gpaString = edtGPA.getText().toString().trim();
 
 
-                clearErrors();
-
-
-                if (id.isEmpty()) {
-                    edtId.setError("Mã sinh viên không được để trống");
-                    edtId.requestFocus();
-                    return;
-                }
-                if (name.isEmpty()) {
-                    edtName.setError("Tên không được để trống");
-                    edtName.requestFocus();
-                    return;
-                }
-                if (birthDay.isEmpty()) {
-                    edtBirthDay.setError("Ngày sinh không được để trống");
-                    edtBirthDay.requestFocus();
-                    return;
-                }
-                if (address.isEmpty()) {
-                    edtAddress.setError("Địa chỉ không được để trống");
-                    edtAddress.requestFocus();
-                    return;
-                }
-                if (email.isEmpty()) {
-                    edtEmail.setError("Email không được để trống");
-                    edtEmail.requestFocus();
-                    return;
-                }
-                if (!isValidEmail(email)) {
-                    edtEmail.setError("Email không hợp lệ");
-                    edtEmail.requestFocus();
-                    return;
-                }
-                if (gpaString.isEmpty()) {
-                    edtGPA.setError("GPA không được để trống");
-                    edtGPA.requestFocus();
+                if (id.isEmpty() || name.isEmpty() || birthDay.isEmpty() || address.isEmpty() ||
+                        email.isEmpty() || gpaString.isEmpty()) {
+                    showToast("Vui lòng điền tất cả các trường.");
                     return;
                 }
 
                 double gpa;
                 try {
                     gpa = Double.parseDouble(gpaString);
-                    if (gpa < 0 || gpa > 9) {
-                        edtGPA.setError("GPA phải nằm trong khoảng từ 0 đến 4");
-                        edtGPA.requestFocus();
+                    if (gpa < 0 || gpa > 10) {
+                        showToast("GPA phải nằm trong khoảng từ 0 đến 4.");
                         return;
                     }
                 } catch (NumberFormatException e) {
-                    edtGPA.setError("GPA không hợp lệ");
-                    edtGPA.requestFocus();
+                    showToast("GPA không hợp lệ.");
                     return;
                 }
 
@@ -123,23 +89,7 @@ public class AddStudent extends AppCompatActivity {
     }
 
 
-    private void clearErrors() {
-        edtId.setError(null);
-        edtName.setError(null);
-        edtBirthDay.setError(null);
-        edtAddress.setError(null);
-        edtEmail.setError(null);
-        edtGPA.setError(null);
-    }
-
-
-    private boolean isValidEmail(String email) {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        return email.matches(emailPattern);
-    }
-
     private void setupSpinners() {
-
         String[] majors = {"Công nghệ thông tin", "Kinh tế", "Điện tử viễn thông"};
         String[] years = {"1", "2", "3", "4"};
 
@@ -150,5 +100,9 @@ public class AddStudent extends AppCompatActivity {
         ArrayAdapter<String> yearAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, years);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerYear.setAdapter(yearAdapter);
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(AddStudentActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }

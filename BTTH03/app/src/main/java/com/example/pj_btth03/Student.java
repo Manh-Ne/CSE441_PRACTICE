@@ -38,4 +38,32 @@ public class Student implements Serializable {
     public double getGpa() { return gpa; }
     public int getYear() { return year; }
     public String getGender() { return gender; }
+
+    
+    public void setBirthDay(String birthDay) {
+    }
+
+    public void setAddress(String address) {
+    }
+
+    public void setEmail(String email) {
+    }
+
+    public void setMajor(String major) {
+    }
+
+    public void setGpa(double gpa) {
+    }
+
+    public void setYear(int year) {
+    }
+
+    public void setGender(String gender) {
+    }
+
+    public void setId(String id) {
+    }
+
+    public void setName(String name) {
+    }
 }
